@@ -2,7 +2,12 @@
   <div class="nav">
     <v-row class="nav_con">
       <v-col class="nav_logo" cols="4">
-        <img src="../../assets/logo/blogo.svg" alt="logo" class="blogo" />
+        <img
+          src="../../assets/logo/blogo.svg"
+          alt="logo"
+          class="blogo"
+          style="width: 100px; height: 50px"
+        />
       </v-col>
       <v-col cols="8">
         <v-list :items="menus" class="menu_list"></v-list>
@@ -60,9 +65,11 @@ export default {
   .nav {
     z-index: 999;
     position: fixed;
-    top: -90px;
+    top: -100px;
+    height: 70px;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 10px 0;
   }
   .nav_con {
     position: relative;
@@ -73,8 +80,6 @@ export default {
   .nav_logo {
     position: relative;
     align-self: center;
-    width: 150px;
-    height: 75px;
     cursor: pointer;
   }
   .menu_list {
@@ -82,7 +87,10 @@ export default {
     display: flex;
     justify-content: flex-end;
     background: none;
-    color: white;
+    color: rgb(255, 255, 255);
+  }
+  .menu_list .v-list-item-title {
+    font-size: 13px;
   }
 }
 </style>

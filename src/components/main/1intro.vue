@@ -21,10 +21,10 @@ export default {
   setup(props, { emit }) {
     onMounted(() => {
       setTimeout(function () {
-        emit("change-state", true); // use the emit function passed as the second argument
         const intro = document.getElementsByClassName("intro_section");
         intro[0].style.display = "none";
-      }, 6000);
+        emit("change-state", true); // use the emit function passed as the second argument
+      }, 5000);
     });
   },
   mounted() {
@@ -61,7 +61,7 @@ export default {
       duration: 1000,
       opacity: 0,
       top: "-100vh",
-      delay: 5000,
+      delay: 4000,
       easing: "easeOutExpo",
     });
   },
@@ -78,6 +78,7 @@ export default {
   background: "rgba(0, 0, 0, 0)";
   height: 100%;
   width: 100%;
+  object-fit: fill;
 }
 .intro_pic {
   background-image: url("../../assets/intro/intro_pic.svg");

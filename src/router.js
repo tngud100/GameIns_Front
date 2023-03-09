@@ -33,8 +33,18 @@ const routes = [
   },
   {
     path: "/fourth",
-    name: "contaact_section",
+    name: "contact_section",
     component: () => import("@/components/main/5contact_section.vue"),
+  },
+  {
+    path: "/fifth",
+    name: "lineUp_section",
+    component: () => import("@/components/main/3second_section.vue"),
+  },
+  {
+    path: "/sixth",
+    name: "divide_section",
+    component: () => import("@/components/main/2divide_section.vue"),
   },
 
   {
