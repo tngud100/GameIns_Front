@@ -6,7 +6,7 @@
       <v-col cols="8" class="service_card">
         <v-card v-for="(item, index) in 3" :key="index" class="mx-auto">
           <v-img
-            class="align-end text-white"
+            class="text-white"
             src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
             cover
           >
@@ -30,15 +30,16 @@
 <script>
 export default {
   name: "service_section",
+
   mounted() {
-    this.$anime({
-      targets: ".service_section",
-      scale: [
-        { value: 0.1, easing: "easeOutSine", duration: 500 },
-        { value: 1, easing: "easeInOutQuad", duration: 1200 },
-      ],
-      delay: this.$anime.stagger(200, { grid: [1, 2], from: "center" }),
-    });
+    // this.$anime({
+    //   targets: ".service_section",
+    //   scale: [
+    //     { value: 0.1, easing: "easeOutSine", duration: 500 },
+    //     { value: 1, easing: "easeInOutQuad", duration: 1200 },
+    //   ],
+    //   delay: this.$anime.stagger(200, { grid: [1, 2], from: "center" }),
+    // });
   },
 };
 </script>
