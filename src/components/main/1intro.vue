@@ -24,7 +24,7 @@ export default {
         const intro = document.getElementsByClassName("intro_section");
         intro[0].style.display = "none";
         emit("change-state", true); // use the emit function passed as the second argument
-      }, 5000);
+      }, 6000);
     });
   },
   mounted() {
@@ -58,11 +58,10 @@ export default {
     });
     this.$anime({
       targets: [".intro_section"],
-      duration: 1000,
+      duration: 1500,
       opacity: 0,
-      top: "-100vh",
       delay: 4000,
-      easing: "easeOutExpo",
+      easing: "easeInSine",
     });
   },
 };

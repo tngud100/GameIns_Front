@@ -10,8 +10,12 @@
           />
         </v-col>
         <v-col cols="6">
-          <span>마음을 움직이는 스토리텔링 웹/앱 개발</span>
-          <span>타협하지 않는 최고의 퀄리티</span>
+          <div style="position: relative; top: 30%">
+            <span>마음을 움직이는 스토리텔링 웹/앱 개발</span>
+            <span>타협하지 않는 최고의 퀄리티</span>
+            <span>마음을 움직이는 스토리텔링 웹/앱 개발</span>
+            <span>타협하지 않는 최고의 퀄리티</span>
+          </div>
         </v-col>
       </v-row>
       <v-row
@@ -20,8 +24,13 @@
         style="justify-content: right"
       >
         <v-col cols="8">
-          <span>마음을 움직이는 스토리텔링 웹/앱 개발</span>
-          <span>타협하지 않는 최고의 퀄리티</span>
+          <div style="position: relative; top: 30%; margin-right: 20%">
+            <span>마음을 움직이는 스토리텔링 웹/앱 개발</span>
+            <span>타협하지 않는 최고의 퀄리티</span>
+            <span>마음을 움직이는 스토리텔링 웹/앱 개발</span>
+            <span>마음을 움직이는 스토리텔링 웹/앱 개발</span>
+            <span>타협하지 않는 최고의 퀄리티</span>
+          </div>
         </v-col>
         <v-col cols="3">
           <img
@@ -40,8 +49,12 @@
           />
         </v-col>
         <v-col cols="6">
-          <span>마음을 움직이는 스토리텔링 웹/앱 개발</span>
-          <span>타협하지 않는 최고의 퀄리티</span>
+          <div style="position: relative; top: 10%">
+            <span>마음을 움직이는 스토리텔링 웹/앱 개발</span>
+            <span>타협하지 않는 최고의 퀄리티</span>
+            <span>마음을 움직이는 스토리텔링 웹/앱 개발</span>
+            <span>타협하지 않는 최고의 퀄리티</span>
+          </div>
         </v-col>
       </v-row>
     </div>
@@ -72,16 +85,10 @@ export default {
   },
   mounted() {
     ScrollOut({
+      offset: 500,
       cssProps: {
         visibleY: true,
-      },
-
-      onShown: function (el) {
-        el.classList.add("animated");
-      },
-
-      onHidden: function (el) {
-        el.classList.remove("animated");
+        viewportY: true,
       },
     });
   },
@@ -115,21 +122,26 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.span {
+  top: 50%;
+}
 [data-scroll] {
-  transition: transform 100ms;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
-[data-scroll="in"] {
-  --scale: calc(0.8 + (0.3 * var(--visible-y)));
-  opacity: var(--visible-y);
-  transform: scale(var(--scale));
+.content_img[data-scroll="in"] {
+  opacity: 1;
   transform-origin: right center;
+}
+.content_img[data-scroll="out"] {
+  opacity: 0;
 }
 
 .second_section {
   position: relative;
-  height: 130vh;
+  height: 110vh;
   width: 100vw;
 }
 .second_content {
@@ -139,6 +151,7 @@ export default {
 }
 .content_img {
   padding-bottom: 15vh;
+  opacity: 0;
 }
 .LineUpWord {
   position: absolute;

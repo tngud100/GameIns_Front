@@ -2,7 +2,7 @@
   <!-- 풋터 -->
   <div class="footer">
     <v-row class="footer_con">
-      <v-col cols="12">
+      <v-col cols="12" style="width: 60vw">
         <div class="logo_con">
           <img
             src="../../assets/footer/bottomlogo.png"

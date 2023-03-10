@@ -7,6 +7,7 @@ import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import anime from "animejs/lib/anime.es.js";
+// import jQuery from "jquery";
 
 const vuetify = createVuetify({
   components,
@@ -18,5 +19,6 @@ const app = createApp(App);
 app.use(vuetify);
 app.use(router);
 app.config.globalProperties.$anime = anime;
+// global.$ = jQuery;
 
 app.mount("#app");

@@ -1,10 +1,8 @@
 <template>
   <!-- 비디오 section -->
-  <div class="filter"></div>
   <section class="video_section">
     <video
-      style="display: none"
-      src="../../assets/intro/main_video.mp4"
+      src="../../assets/intro/Walking.mp4"
       class="main_video"
       autoplay="autoplay"
       muted="muted"
@@ -12,7 +10,7 @@
       loop
     ></video>
     <div>
-      <v-row style="height: 25vh"> </v-row>
+      <v-row style="height: 35vh"> </v-row>
       <v-row class="vision_text">
         <v-col class="vision_title" cols="12"> VISION </v-col>
         <v-col class="vision_detail" cols="12">
@@ -37,18 +35,18 @@ export default {
     this.$anime({
       targets: [".vision_title"],
       top: "0px",
-      duration: 500,
+      duration: 800,
       translateX: -100,
-      delay: 500,
+      delay: 6500,
       opacity: 1,
       easing: "easeInSine",
     }),
       this.$anime({
         targets: [".vision_detail"],
         top: "0px",
-        duration: 500,
+        duration: 800,
         translateX: -100,
-        delay: 650,
+        delay: 7000,
         opacity: 1,
         easing: "easeInSine",
       });
@@ -56,14 +54,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* 메인 Video */
 .video_section {
   position: relative;
   top: 0;
   width: 100vw;
-  height: 61vh;
-  box-shadow: 0px -7px 100px 0px;
+  height: 100vh;
+  box-shadow: 0px 0px 300px 0px;
+  background-attachment: fixed;
 }
 .main_video {
   position: absolute;
@@ -88,11 +87,11 @@ export default {
   padding-right: 15%;
   opacity: 0;
 }
-.filter {
+/* .filter {
   position: absolute;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   z-index: -998;
   width: 100vw;
-  height: 61vh;
-}
+  height: 100vh;
+} */
 </style>

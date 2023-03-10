@@ -12,6 +12,11 @@ const routes = [
     component: () => import("@/components/header/HeaderNav.vue"),
   },
   {
+    path: "/SubNav",
+    name: "SubNav",
+    component: () => import("@/components/header/SubNav.vue"),
+  },
+  {
     path: "/intro",
     name: "intro",
     component: () => import("@/components/main/1intro.vue"),

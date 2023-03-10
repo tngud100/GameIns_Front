@@ -1,62 +1,93 @@
 <template>
   <!-- 추가 정보 section-->
-  <section class="info_section">
-    <v-row>
-      <v-col cols="12">
-        <div data-scroll class="info_con">
-          <img src="../../assets/info/info.png" class="info_img" alt="" />
-        </div>
-      </v-col>
-    </v-row>
-  </section>
+  <div class="slider-container" ref="sliderContainer">
+    <div class="slider-wrapper" ref="sliderWrapper">
+      <div class="slider-item" v-for="(info, index) in infos" :key="index">
+        <img :src="info.img" alt="" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import ScrollOut from "scroll-out";
 
 export default {
+  data() {
+    return {
+      infos: [
+        {
+          img: require("../../assets/info/info.png"),
+        },
+        {
+          img: require("../../assets/info/info.png"),
+        },
+        {
+          img: require("../../assets/info/info.png"),
+        },
+      ],
+      currentIndex: 0,
+      sliderWidth: 0,
+      sliderItemWidth: 0,
+      sliderWrapperWidth: 0,
+    };
+  },
   mounted() {
     ScrollOut({
-      cssProps: {
-        visibleY: true,
+      onShown: () => {
+        this.sliderWidth = this.$refs.sliderContainer.offsetWidth;
+        this.sliderItemWidth = this.$refs.sliderWrapper.children[0].offsetWidth;
+        this.sliderWrapperWidth = this.$refs.sliderWrapper.offsetWidth;
       },
-
-      onShown: function (el) {
-        el.classList.add("animated");
-      },
-
-      onHidden: function (el) {
-        el.classList.remove("animated");
+      onScroll: (el, { y }) => {
+        if (y < 0 && this.currentIndex < this.infos.length - 1) {
+          this.currentIndex++;
+        } else if (y > 0 && this.currentIndex > 0) {
+          this.currentIndex--;
+        }
+        const newPosition = -this.currentIndex * this.sliderItemWidth;
+        this.$refs.sliderWrapper.style.transform = `translateX(${newPosition}px)`;
       },
     });
   },
 };
 </script>
 
-<style lang="scss" scoped>
-[data-scroll] {
-  transition: transform 100ms;
+<style scoped>
+/* // [data-scroll] {
+//   transition: scale opacity 1000ms;
+// }
+
+// .info_con[data-scroll="in"] {
+//   opacity: 1;
+//   transform-origin: right center;
+// }
+// .info_con[data-scroll="out"] {
+//   opacity: 0;
+// } */
+/* info_section */
+.slider-container {
+  width: 100%;
+  height: 100vh;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
-[data-scroll="in"] {
-  --scale: calc(0.8 + (0.3 * var(--visible-y)));
-  transform: scale(var(--scale));
-  transform-origin: center center;
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-out;
 }
-/* info_section */
-.info_section {
-  width: 100vw;
-  height: 100vh;
-}
-.info_con {
+
+.slider-item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
 
-.info_img {
-  position: relative;
+.slider-item img {
   width: 100vw;
   height: 100vh;
-  transition: all 0.2s linear;
 }
 /* .info_img:hover {
   transform: scale(3);
