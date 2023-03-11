@@ -25,6 +25,7 @@ export default {};
 
 <style>
 .contact_section {
+  position: relative;
   height: 75vh;
   background-image: url("../../assets/footer/contact.jpg");
 }

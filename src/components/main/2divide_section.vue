@@ -25,11 +25,13 @@ export default {};
 .back_img {
   background-image: url("../../assets/home/second_backimg.jpg");
   background-size: cover;
+  position: relative;
   width: 100%;
   height: 50vh;
-
+  margin-top: 100vh;
   object-fit: fill;
   background-attachment: fixed;
+
 }
 .divide_ment {
   z-index: 0;

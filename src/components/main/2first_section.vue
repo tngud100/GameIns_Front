@@ -57,12 +57,11 @@ export default {
 <style scoped>
 /* 메인 Video */
 .video_section {
-  position: relative;
+  position: fixed;
   top: 0;
   width: 100vw;
   height: 100vh;
   box-shadow: 0px 0px 300px 0px;
-  background-attachment: fixed;
 }
 .main_video {
   position: absolute;
@@ -87,11 +86,11 @@ export default {
   padding-right: 15%;
   opacity: 0;
 }
-/* .filter {
+.filter {
   position: absolute;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   z-index: -998;
   width: 100vw;
   height: 100vh;
-} */
+}
 </style>

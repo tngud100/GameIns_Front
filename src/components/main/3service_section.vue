@@ -66,6 +66,7 @@ export default {
 .service_section {
   position: relative;
   justify-content: center;
+  background: white;
   height: 100vh;
 }
 .white_space {

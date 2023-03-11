@@ -1,95 +1,241 @@
 <template>
   <!-- 추가 정보 section-->
-  <div class="slider-container" ref="sliderContainer">
-    <div class="slider-wrapper" ref="sliderWrapper">
-      <div class="slider-item" v-for="(info, index) in infos" :key="index">
-        <img :src="info.img" alt="" />
+
+  <div class="portfo_con">
+    <div class="portfo_con_gra"></div>
+    <div class="portfo_item">
+      <div class="portfo_item_img1"></div>
+      <div class="portfo_item_img2"></div>
+      <div class="portfo_item_img3"></div>
+      <div class="portfo_item_img4">
+        <div class="portfo_item_img4_btn">
+          <h1>MORE +</h1>
+        </div>
+      </div>
+    </div>
+    <div class="portfo_con_back">
+      <div>
+        <div class="portfo_item_line"></div>
+        <div class="portfo_con_back_center"></div>
+        <h1 class="portfo_con_h">VIEW ALL PORTFOLIO</h1>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import ScrollOut from "scroll-out";
-
+import { onMounted } from "vue";
 export default {
-  data() {
-    return {
-      infos: [
-        {
-          img: require("../../assets/info/info.png"),
-        },
-        {
-          img: require("../../assets/info/info.png"),
-        },
-        {
-          img: require("../../assets/info/info.png"),
-        },
-      ],
-      currentIndex: 0,
-      sliderWidth: 0,
-      sliderItemWidth: 0,
-      sliderWrapperWidth: 0,
-    };
-  },
-  mounted() {
-    ScrollOut({
-      onShown: () => {
-        this.sliderWidth = this.$refs.sliderContainer.offsetWidth;
-        this.sliderItemWidth = this.$refs.sliderWrapper.children[0].offsetWidth;
-        this.sliderWrapperWidth = this.$refs.sliderWrapper.offsetWidth;
-      },
-      onScroll: (el, { y }) => {
-        if (y < 0 && this.currentIndex < this.infos.length - 1) {
-          this.currentIndex++;
-        } else if (y > 0 && this.currentIndex > 0) {
-          this.currentIndex--;
+  setup() {
+    onMounted(() => {
+      var portfo_item_img1 = document.querySelector(".portfo_item_img1");
+      var portfo_item_img2 = document.querySelector(".portfo_item_img2");
+      var portfo_item_img3 = document.querySelector(".portfo_item_img3");
+      var portfo_item_img4 = document.querySelector(".portfo_item_img4");
+      var portfo_item_line = document.querySelector(".portfo_item_line");
+      let isScrolling = false;
+
+      window.addEventListener("wheel", (e) => {
+
+
+        const scrollHeight = window.scrollY;
+        const desiredHeight = 2300;
+
+        if (scrollHeight >= desiredHeight && !isScrolling) {
+          e.preventDefault(); // 기본 스크롤 동작 막기
         }
-        const newPosition = -this.currentIndex * this.sliderItemWidth;
-        this.$refs.sliderWrapper.style.transform = `translateX(${newPosition}px)`;
-      },
+        else if (scrollHeight < desiredHeight && isScrolling) {
+          isScrolling = false;
+        }
+
+        if (portfo_item_img1.getBoundingClientRect().x == 20) {
+          if (e.wheelDeltaY < 0) {
+            portfo_item_img1.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img2.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img3.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img4.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_line.style.transform = `translateX(calc(603.63px * 2))`;
+          }
+          else if (e.wheelDeltaY > 0) {
+            window.scrollBy({ top: -1000, left: 0, behavior: "smooth" }); // 스크롤 이동
+          }
+        } else if (portfo_item_img2.getBoundingClientRect().x == 20) {
+          if (e.wheelDeltaY < 0) {
+            portfo_item_img1.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img2.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img3.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img4.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_line.style.transform = `translateX(calc(603.63px))`;
+          } else if (e.wheelDeltaY > 0) {
+            portfo_item_img1.style.transform = `translateX(0px)`;
+            portfo_item_img2.style.transform = `translateX(0px)`;
+            portfo_item_img3.style.transform = `translateX(0px)`;
+            portfo_item_img4.style.transform = `translateX(0px)`;
+            portfo_item_line.style.transform = `translateX(calc(0px))`;
+          }
+        } else if (portfo_item_img3.getBoundingClientRect().x == 20) {
+          if (e.wheelDeltaY < 0) {
+            portfo_item_img1.style.transform = `translateX(calc(-300% - 60px))`;
+            portfo_item_img2.style.transform = `translateX(calc(-300% - 60px))`;
+            portfo_item_img3.style.transform = `translateX(calc(-300% - 60px))`;
+            portfo_item_img4.style.transform = `translateX(calc(-300% - 60px))`;
+            portfo_item_line.style.transform = `translateX(0px)`;
+          } else if (e.wheelDeltaY > 0) {
+            portfo_item_img1.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img2.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img3.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_img4.style.transform = `translateX(calc(-100% - 20px))`;
+            portfo_item_line.style.transform = `translateX(calc(603.63px * 2))`;
+          }
+        } else if (portfo_item_img4.getBoundingClientRect().x == 20) {
+          if (e.wheelDeltaY > 0) {
+            portfo_item_img1.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img2.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img3.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_img4.style.transform = `translateX(calc(-200% - 40px))`;
+            portfo_item_line.style.transform = `translateX(calc(603.63px ))`;
+          } else if (e.wheelDeltaY < 0) {
+            window.scrollBy({ top: 1000, left: 0, behavior: "smooth" }); // 스크롤 이동
+          }
+        }
+        
+        if (window.scrollY >= 3330 ){
+          if (e.wheelDeltaY > 0) {
+            window.scrollBy({ top: -1000, left: 0, behavior: "smooth" }); // 스크롤 이동
+          }
+        }
+
+      }, { passive: false });
     });
-  },
+  }
 };
 </script>
 
 <style scoped>
-/* // [data-scroll] {
-//   transition: scale opacity 1000ms;
-// }
-
-// .info_con[data-scroll="in"] {
-//   opacity: 1;
-//   transform-origin: right center;
-// }
-// .info_con[data-scroll="out"] {
-//   opacity: 0;
-// } */
-/* info_section */
-.slider-container {
+.portfo_con {
   width: 100%;
   height: 100vh;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-
-.slider-wrapper {
+  overflow-y: hidden;
   display: flex;
-  transition: transform 0.5s ease-out;
+  align-items: center;
+  position: relative;
+  background: url("../../assets/intro/back.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.slider-item {
-  flex-shrink: 0;
+.portfo_con_gra {
+  position: absolute;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.portfo_item {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+  left: 0px;
+  overflow: hidden;
+  z-index: 30;
+}
+
+.portfo_item_img1 {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../assets/info/info.png");
+  background-size: cover;
+  margin-left: 20px;
+  flex-shrink: 0;
+  transition: all 1s;
+}
+
+.portfo_item_img2 {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../assets/info/info.png");
+
+  background-size: cover;
+  margin-left: 20px;
+  flex-shrink: 0;
+  transition: all 1s;
+}
+
+.portfo_item_img3 {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../assets/info/info.png");
+
+  background-size: cover;
+  margin-left: 20px;
+  flex-shrink: 0;
+  transition: all 1s;
+}
+
+.portfo_item_img4 {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../assets/info/info.png");
+
+  background-size: cover;
+  margin-left: 20px;
+  flex-shrink: 0;
+  transition: all 1s;
+  position: relative;
+}
+
+.portfo_item_img4_btn {
+  position: absolute;
+  width: 160px;
+  height: 60px;
+  border-radius: 50px;
+  border: 1px solid white;
+  right: -200px;
+  top: 40%;
+  cursor: pointer;
+}
+
+.portfo_item_img4_btn h1 {
+  margin: 0px;
+  color: white;
+  line-height: 60px;
   text-align: center;
 }
 
-.slider-item img {
-  width: 100vw;
-  height: 100vh;
+.portfo_con_h {
+  color: white;
+  font-size: 60px;
+  margin: 0px;
+  margin-left: 20px;
+  cursor: pointer;
+  line-height: 50px;
 }
-/* .info_img:hover {
-  transform: scale(3);
-} */
+
+.portfo_con_back {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: absolute;
+  z-index: 5;
+}
+
+.portfo_con_back_center {
+  width: 100%;
+  height: 350px;
+  padding: 1px;
+}
+
+.portfo_item_line {
+  width: 400px;
+  height: 6px;
+  background: #3180f1;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  transition: all 1s;
+}
 </style>
