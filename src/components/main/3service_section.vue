@@ -1,43 +1,64 @@
 <template>
   <!-- 서비스 section -->
   <section class="service_section">
-    <v-row class="white_space">
-      <v-col cols="3"> SERVICE </v-col>
+    <v-row>
+      <div><span class="service_title">SERVICE</span></div>
     </v-row>
-    <span class="service_word">SERVICE</span>
-    <v-row class="service_content">
-      <v-col cols="8">
-        <div class="service_card">
-          <v-card v-for="(item, index) in 3" :key="index" class="mx-auto">
-            <v-img
-              class="text-white"
-              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-              cover
-            >
-              <v-card-title>Top 10 Australian beaches</v-card-title>
-            </v-img>
+    <v-row style="height: 76%">
+      <v-col
+        cols="3"
+        v-for="(item, index) of 3"
+        :key="index"
+        class="service_con"
+      >
+        <v-card class="service_card">
+          <div class="service_con_hover">
+            <div></div>
+            <div>
+              <span class="sub_title_hover">Web/App</span>
+              <span class="sub_dec_hover">
+                <p style="padding: 5px">
+                  디테일한 퀄리티와 수준높은 IT기술력으로 최상의 결과물을 보여
+                  드리겠습니다.
+                </p>
+              </span>
+            </div>
+            <div></div>
+          </div>
+          <v-img
+            class="service_img"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNi2bHAYvkw4GlUl_46IBqjBj555XHs9bMqYyI9l4DYROWsWq2G96wEgtjeECB5bPcfGE&usqp=CAU"
+            cover
+          >
+          </v-img>
 
-            <v-card-subtitle class="pt-4"> Number 10 </v-card-subtitle>
+          <v-card-subtitle class="pt-4">Web/App</v-card-subtitle>
 
-            <v-card-text>
-              <div>Whitehaven Beach</div>
-
-              <div>Whitsunday Island, Whitsunday Islands</div>
-            </v-card-text>
-          </v-card>
-        </div>
+          <v-card-text>
+            <div>
+              디테일한 퀄리티와 수준높은 IT기술력으로 최상의 결과물을 이끌어
+              보여드리겠습니다.
+            </div>
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
-
-    <v-row class="white_space"> </v-row>
   </section>
 </template>
 
 <script>
+import ScrollOut from "scroll-out";
 export default {
   name: "service_section",
   setup() {},
   mounted() {
+    ScrollOut({
+      targets: ".service_con",
+      onShown: function (el) {
+        // use the web animation API
+        el.animate([{ opacity: 0 }, { opacity: 1 }], 1000);
+      },
+    });
     // this.$anime({
     //   targets: ".service_section",
     //   scale: [
@@ -51,41 +72,58 @@ export default {
 </script>
 
 <style scoped>
-/*  */
-.service_word {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  top: -100px;
-  font-size: 12rem;
-  color: #f6f6f6;
-  left: 21%;
-  z-index: -1000;
-}
 /* 서비스 */
 .service_section {
   position: relative;
+  display: grid;
   justify-content: center;
+  align-items: center;
   background: white;
   height: 100vh;
 }
-.white_space {
-  font-size: 3rem;
-  padding-top: 4%;
-  text-align: right;
-  height: 20vh;
-}
-.service_content {
-  justify-content: center;
-  height: 50vh;
-  margin-top: 4%;
-  display: flex;
+.service_title {
+  position: absolute;
+  font-size: 3.5rem;
+  padding-top: 4vh;
+  padding-left: 26vw;
 }
 .service_card {
-  display: flex;
-  height: 45vh;
+  height: 42vh;
+  width: 15vw;
+  box-shadow: 1px 1px 5px 0px;
 }
-.mx-auto {
-  box-shadow: -2px -2px 12px -4px;
+.service_con {
+  margin: 50px;
+}
+
+.service_con_hover {
+  position: absolute;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  text-align: center;
+  align-items: center;
+  color: white;
+  opacity: 0;
+}
+.sub_title_hover {
+  font-size: 1.5rem;
+  padding: 30px;
+  display: block;
+}
+.sub_dec_hover {
+  font-size: 1rem;
+  display: block;
+  padding: 12px;
+}
+.service_con_hover:hover {
+  transition: 0.3s ease-in;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+}
+.service_con_hover:not(:hover) {
+  transition: 0.3s ease-out;
+  opacity: 0;
 }
 </style>
