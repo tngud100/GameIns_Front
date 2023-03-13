@@ -1,12 +1,13 @@
 <template>
-  <Intro class="intro" :state="nav_state" @change-state="handleChangeState" />
-  <HeaderNav class="nav" v-if="nav_state"> </HeaderNav>
-  <First class="first" />
+  <!-- <Intro class="intro" :state="nav_state" @change-state="handleChangeState" /> -->
+  <!-- <HeaderNav class="nav" v-if="nav_state"> </HeaderNav> -->
+  <HeaderNav class="nav" />
   <SubNav style="display: none" />
+  <First class="first" />
   <Second />
   <Divide />
   <Service />
-  <Info />
+  <!-- <Info /> -->
   <contact />
   <Footer />
 </template>
@@ -15,12 +16,12 @@
 import HeaderNav from "./../header/HeaderNav.vue";
 import SubNav from "./../header/SubNav.vue";
 import Footer from "./../footer/Footer.vue";
-import Intro from "./../main/1intro.vue";
+// import Intro from "./../main/1intro.vue";
 import First from "./../main/2first_section.vue";
 import Divide from "./../main/2divide_section.vue";
 // import Second from "./../main/3second_section.vue";
 import Service from "./../main/3service_section.vue";
-import Info from "./../main/4info_section.vue";
+// import Info from "./../main/4info_section.vue";
 import Contact from "./../main/5contact_section.vue";
 
 export default {
@@ -28,12 +29,12 @@ export default {
   components: {
     HeaderNav,
     SubNav,
-    Intro,
+    // Intro,
     First,
     Divide,
     // Second,
     Service,
-    Info,
+    // Info,
     Contact,
     Footer,
   },

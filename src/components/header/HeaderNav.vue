@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <v-row class="nav_con">
-      <v-col class="nav_logo" cols="4">
+      <v-col class="nav_logo" cols="2">
         <img
           src="../../assets/logo/blogo.svg"
           alt="logo"
@@ -9,7 +9,8 @@
           style="width: 100px; height: 50px"
         />
       </v-col>
-      <v-col cols="8">
+      <v-spacer />
+      <v-col cols="4">
         <v-list :items="menus" class="menu_list"></v-list>
       </v-col>
     </v-row>
@@ -74,7 +75,8 @@ export default {
   .nav_con {
     position: relative;
     height: 100%;
-    margin: 0 20%;
+    margin: 0px 15%;
+    width: 1300px;
     transition: top 0.2s ease-in-out;
   }
   .nav_logo {

@@ -1,15 +1,14 @@
 <template>
   <div class="nav">
     <v-row class="nav_con">
-      <v-col class="nav_logo" cols="4">
+      <v-col class="nav_logo" cols="2">
         <img
-          src="../../assets/logo/logo.png"
-          alt="logo"
-          class="blogo"
+          src="../../assets/logo/scrollblogo.svg"
           style="width: 100px; height: 50px"
         />
       </v-col>
-      <v-col cols="8">
+      <v-spacer />
+      <v-col cols="4">
         <v-list :items="menus" class="menu_list"></v-list>
       </v-col>
     </v-row>
@@ -42,7 +41,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .nav {
   z-index: 1000;
   position: fixed;
@@ -54,7 +53,8 @@ export default {
 .nav_con {
   position: relative;
   height: 100%;
-  margin: 0 20%;
+  margin: 0px 15%;
+  width: 1300px;
 }
 .nav_logo {
   position: relative;
@@ -63,8 +63,6 @@ export default {
 }
 .menu_list {
   position: relative;
-  display: flex;
-  justify-content: flex-end;
   background: none;
   color: rgb(0, 0, 0);
 }

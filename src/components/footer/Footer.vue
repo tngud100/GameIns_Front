@@ -111,7 +111,7 @@ export default {
   margin-bottom: 20px;
 }
 .footer_info {
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 14.4px;
   margin-top: 12px;
 }

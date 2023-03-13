@@ -1,6 +1,7 @@
 <template>
   <!-- 비디오 section -->
   <section class="video_section">
+    <div data-scroll class="filter" />
     <video
       src="../../assets/intro/Walking.mp4"
       class="main_video"
@@ -28,16 +29,17 @@
 </template>
 
 <script>
+import ScrollOut from "scroll-out";
 export default {
   name: "first_section",
-
+  setup() {},
   mounted() {
     this.$anime({
       targets: [".vision_title"],
       top: "0px",
       duration: 800,
       translateX: -100,
-      delay: 6500,
+      delay: 500,
       opacity: 1,
       easing: "easeInSine",
     }),
@@ -46,16 +48,38 @@ export default {
         top: "0px",
         duration: 800,
         translateX: -100,
-        delay: 7000,
+        delay: 1000,
         opacity: 1,
         easing: "easeInSine",
       });
+    ScrollOut({
+      cssProps: {
+        visibleY: true,
+      },
+      threshold: 0.2,
+    });
   },
 };
 </script>
 
 <style scoped>
+[data-scroll] {
+  transition: opacity 1s;
+}
+.filter[data-scroll="in"] {
+}
+.filter[data-scroll="out"] {
+  opacity: var(--scroll-percent-y);
+}
 /* 메인 Video */
+.filter {
+  position: absolute;
+  z-index: 100;
+  background-color: rgb(0, 0, 0);
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+}
 .video_section {
   position: fixed;
   top: 0;
@@ -85,12 +109,5 @@ export default {
   font-size: 1rem;
   padding-right: 15%;
   opacity: 0;
-}
-.filter {
-  position: absolute;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-  z-index: -998;
-  width: 100vw;
-  height: 100vh;
 }
 </style>
