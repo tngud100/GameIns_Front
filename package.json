@@ -1,0 +1,68 @@
+{
+  "name": "company-page",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.1.96",
+    "animejs": "^3.2.1",
+    "core-js": "^3.8.3",
+    "gsap": "^3.11.4",
+    "jquery": "^3.6.4",
+    "mdi": "^2.2.43",
+    "sass-loader": "^13.2.0",
+    "scroll-out": "^2.2.12",
+    "scrollmagic": "^2.0.8",
+    "slick-carousel": "^1.8.1",
+    "splitting": "^1.0.6",
+    "swiper": "^8.4.7",
+    "three.js": "^0.77.1",
+    "typeit": "^8.7.1",
+    "vue": "^3.2.13",
+    "vue-awesome-swiper": "^5.0.1",
+    "vue-carousel": "^0.18.0",
+    "vue-router": "^4.1.6",
+    "vue-scrollto": "^2.20.0",
+    "vue-slick": "^1.2.0",
+    "vue-slick-carousel": "^1.0.6",
+    "vue3-carousel": "^0.2.12",
+    "vuetify": "^3.1.7",
+    "wallop": "^2.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "node-sass": "^8.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {
+      "vue/multi-word-component-names": 0
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}
